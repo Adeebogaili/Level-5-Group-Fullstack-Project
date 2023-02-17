@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-// Product Blueprint
+// Grocery Blueprint
 
-const productSchema = new Schema({
+const grocerySchema = new Schema({
     name: {
         type: String,
         required: true
@@ -28,4 +28,4 @@ const productSchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model("Product", productSchema)
+module.exports = mongoose.model("Grocery", grocerySchema)

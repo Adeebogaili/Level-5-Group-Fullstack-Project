@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URL,
 )
 
 // Routes //
-app.use("/products", require("./routes/productsRouter"))
+app.use("/groceries", require("./routes/groceriesRouter"))
 
 // Error Handling
 app.use((err, req, res, next) => {
