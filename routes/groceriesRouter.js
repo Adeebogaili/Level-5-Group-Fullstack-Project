@@ -26,6 +26,20 @@ groceryRouter.get("/:groceryId", (req, res, next) => {
     })
 })
 
+// Get by Type
+groceryRouter.get("/search/type", (req, res, next) => {
+    Grocery.find(
+        {type: req.query.type}, 
+        (err, groceries) => {
+            if(err){
+                res.status(500)
+                return next(200)
+            }
+            return res.status(200).send(groceries)
+        }
+    )
+})
+
 // Poste one
 groceryRouter.post("/", (req, res, next) => {
     const newGrocery = new Grocery(req.body)
@@ -54,12 +68,10 @@ groceryRouter.delete("/:groceryId", (req, res, next) => {
 
 // Update one
 groceryRouter.put("/:groceryId", (req, res, next) => {
-    Grocery.findOneAndUpdate({
-            _id: req.params.groceryId
-        },
-        (req.body), {
-            new: true
-        },
+    Grocery.findOneAndUpdate(
+        {_id: req.params.groceryId}, // find this one to updateS
+        (req.body), // update the object
+        {new: true}, // send back the updated version
         (err, updatedGrocery) => {
             if (err) {
                 res.status(500)
