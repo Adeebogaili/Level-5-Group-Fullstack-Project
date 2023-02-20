@@ -20,9 +20,9 @@ import {
 
  const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" elemnet={<RootLayout />}>
+    <Route path="/" element={<RootLayout />}>
       <Route path="" element={<Home />}/>
-      <Route path="grocery" element={<Groceries />}/>
+      <Route path="groceries" element={<Groceries />}/>
       <Route path="kitchen" element={<Kitchen />}/>
       <Route path="essentials" element={<Essentials />}/>
     </Route>
@@ -32,7 +32,7 @@ import {
 function App() {
   return (
     <RouterProvider router={router} />
-  );
+  )
 }
 
 export default App;
