@@ -14,11 +14,8 @@ const recipeSchema = new Schema({
     details: {
         type: Array
     },
-    old_price: {
-        type: Number
-    },
-    new_price: {
-        type: Number
+    ingredients: {
+        type: Array
     },
     imgUrl: {
         type: String
