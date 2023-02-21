@@ -22,7 +22,11 @@ import {
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route path="" element={<Home />}/>
+<<<<<<< HEAD
+      <Route path="Groceries" element={<Groceries />}/>
+=======
       <Route path="groceries" element={<Groceries />}/>
+>>>>>>> main
       <Route path="kitchen" element={<Kitchen />}/>
       <Route path="essentials" element={<Essentials />}/>
     </Route>
