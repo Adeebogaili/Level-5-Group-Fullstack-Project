@@ -15,6 +15,7 @@ import {
  import Kitchen from "./pages/Kitchen";
  import Essentials from "./pages/Essentials";
  import Home from "./pages/Home";
+ import Footer from "./components/Footer";
 
 // Components
 
@@ -32,8 +33,11 @@ import {
 
 function App() {
   return (
-    <RouterProvider router={router} />
-  )
+    <div>
+      <RouterProvider router={router} />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
