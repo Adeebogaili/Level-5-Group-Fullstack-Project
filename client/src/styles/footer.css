@@ -1,0 +1,51 @@
+.footer-container {
+    background-color: #004E36;
+    color: whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+        "logo . . carrot"
+        "shopping about help carrot"
+        ". icons icons carrot"
+        ". . . .";
+    justify-items: center;
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+    grid-area: logo;
+}
+
+.carrot {
+    grid-area: carrot;
+    justify-self: end;
+}
+
+.shopping {
+    grid-area: shopping;
+}
+
+.about {
+    grid-area: about;
+}
+
+.help {
+    grid-area: help;
+}
+
+.icons {
+    grid-area: icons;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap:
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
