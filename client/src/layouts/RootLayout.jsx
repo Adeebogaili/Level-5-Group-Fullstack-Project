@@ -3,35 +3,63 @@ import { NavLink, Outlet } from 'react-router-dom'
 import rootLayout from "../styles/rootLayout.css"
 
 const RootLayout = () => {
+  const [click, setClick] = useState(false);
 
-  const [mobile, setMobile] = useState(false)
-
+  const handleClick = () => setClick(prevClick => !prevClick);
   return (
-    <div className='root-layout'>
-      <header>
-        <div className='container flexSB'>
-                <div className='logo flexSB'>
-                  
-                </div>
-            <nav className='flexSB'>
-                <ul className={mobile ? "navMenu-list" : 'flexSB'} onClick={() => setMobile(false)}>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/groceries">Groceries</NavLink>
-                <NavLink to="/kitchen">Kitchen</NavLink>
-                <NavLink to="/essentials">Essentials</NavLink>
-                </ul>
-                <button className='toggle' onClick={() => setMobile(prevMobile => !prevMobile)}>
-                    {mobile ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}
-                </button>
-            </nav>
-            
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink to="/" className="nav-logo">
+            Partial Foods <span>MARKET</span>
+          </NavLink>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                to="/"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/groceries"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Groceries
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/essentials"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Essentials
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/kitchen"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Kitchen
+              </NavLink>
+            </li>
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
         </div>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  )
+      </nav>
+      <Outlet />
+    </>
+  );
 }
 
 export default RootLayout
