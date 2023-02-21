@@ -22,6 +22,7 @@ import {
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route path="" element={<Home />}/>
+      <Route path="Groceries" element={<Groceries />}/>
       <Route path="groceries" element={<Groceries />}/>
       <Route path="kitchen" element={<Kitchen />}/>
       <Route path="essentials" element={<Essentials />}/>
