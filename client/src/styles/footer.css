@@ -1,4 +1,4 @@
-.footer-container {
+footer{
     background-color: #004E36;
     color: whitesmoke;
     display: grid;
@@ -10,6 +10,7 @@
         ". icons icons carrot"
         ". . . .";
     justify-items: center;
+    text-shadow: .5px .5px 1px black;
 }
 
 .logo {
@@ -25,6 +26,7 @@
 
 .shopping {
     grid-area: shopping;
+    
 }
 
 .about {
@@ -48,4 +50,33 @@ ul {
 
 li {
     list-style-type: none;
+}
+
+@media screen and (max-width: 320px) {
+    footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "logo"
+        "shopping" 
+        "about" 
+        "help"
+        "icons"
+        ".";
+    justify-items: left;
+    padding: 1rem;
+    gap: 10px;
+    }
+    
+    .logo {
+        justify-self: center;
+    }
+
+    .carrot {
+        display: none;
+    }
+
+
+
 }

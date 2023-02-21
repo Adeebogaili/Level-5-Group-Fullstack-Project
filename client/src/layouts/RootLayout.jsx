@@ -11,7 +11,7 @@ const RootLayout = () => {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink to="/" className="nav-logo">
-            Partial Foods <span>MARKET</span>
+            Sunrise Food <span>MARKET</span>
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
