@@ -35,11 +35,11 @@ const RootLayout = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/essentials"
+                to="/recipes"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Essentials
+                Recipes
               </NavLink>
             </li>
             <li className="nav-item">
@@ -49,6 +49,24 @@ const RootLayout = () => {
                 onClick={handleClick}
               >
                 Kitchen
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/essentials"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Essentials
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/contact"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Contact Us
               </NavLink>
             </li>
           </ul>

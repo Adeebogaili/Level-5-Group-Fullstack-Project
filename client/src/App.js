@@ -15,17 +15,20 @@ import {
  import Kitchen from "./pages/Kitchen";
  import Essentials from "./pages/Essentials";
  import Home from "./pages/Home";
+ import Recipes from "./pages/Recipes";
+ import Contact from "./pages/Contact";
 
 // Components
 
  const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route path="" element={<Home />}/>
-      <Route path="Groceries" element={<Groceries />}/>
-      <Route path="groceries" element={<Groceries />}/>
-      <Route path="kitchen" element={<Kitchen />}/>
-      <Route path="essentials" element={<Essentials />}/>
+    <Route path="/" element={<RootLayout />} >
+      <Route path="" element={<Home />} />
+      <Route path="recipes" element={<Recipes />} />
+      <Route path="groceries" element={<Groceries />} />
+      <Route path="kitchen" element={<Kitchen />} />
+      <Route path="essentials" element={<Essentials />} />
+      <Route path="contact" element={<Contact />} />
     </Route>
   )
  )
