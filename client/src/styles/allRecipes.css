@@ -1,4 +1,4 @@
-.recipies {
+.recipe {
     margin-top: 1rem;
     height: 330px;
     position: relative;
@@ -7,11 +7,11 @@
     text-align: left;
 }
 
-.recipies img {
+.recipe img {
     max-width: 190px;
 }
 
-/* .price-wrapper {
+/* .recipe-wrapper {
     margin-top: .8rem;
     display: flex;
     align-items: center;
@@ -30,11 +30,11 @@
     text-decoration: line-through;
 } */
 
-.recipie-name {
+.recipe-name {
     max-width: 150px;
 }
 
-.recipies button {
+.recipes button {
     margin-top: 1rem;
     color: white;
     background-color: #043828;

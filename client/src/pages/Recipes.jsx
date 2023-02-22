@@ -1,37 +1,37 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AllRecipies from "../components/AllRecipies";
-import recipes from "../styles/recipies.css";
+import AllRecipes from "../components/AllRecipes";
+import recipes from "../styles/recipes.css";
 
-const Recipies = () => {
-  const [recipies, setRecipies] = useState([]);
+const Recipes = () => {
+  const [recipes, setRecipes] = useState([]);
 
-  const getRecipies = () => {
+  const getRecipes = () => {
     axios
-      .get("/recipies")
-      .then((res) => setRecipies(res.data))
+      .get("/recipes")
+      .then((res) => setRecipes(res.data))
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getRecipies();
+    getRecipes();
   }, []);
 
   return (
-    <div className="recipies">
-      <h3>{`More than ${recipies.length} results for "recipies"`}</h3>
-      <div className="recipie-wrapper">
-        {recipies.map((recipie) => {
+    <div className="recipes">
+      <h3>{`More than ${recipes.length} results for "recipes"`}</h3>
+      <div className="recipe-wrapper">
+        {recipes.map((recipe) => {
           return (
-            <AllRecipies
-              key={recipie._id}
-              name={recipie.name}
-              description={recipie.description}
-              ingredients={recipie.details}
-              instructions={recipie.instructions}
-              type={recipie.type}
-              imgUrl={recipie.imgUrl}
-              id={recipie._id}
+            <AllRecipes
+              key={recipe._id}
+              name={recipe.name}
+              description={recipe.description}
+              ingredients={recipe.details}
+              instructions={recipe.instructions}
+              type={recipe.type}
+              imgUrl={recipe.imgUrl}
+              id={recipe._id}
             />
           );
         })}
@@ -40,4 +40,4 @@ const Recipies = () => {
   );
 };
 
-export default Recipies;
+export default Recipes;
