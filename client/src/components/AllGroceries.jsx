@@ -1,7 +1,7 @@
 import React from "react";
-import allEssential from "../styles/allEssential.css";
+import "../styles/allGroceries.css";
 
-const Essential = ({
+const AllGroceries = ({
   name,
   description,
   details,
@@ -12,7 +12,7 @@ const Essential = ({
   id,
 }) => {
   return (
-    <section className="essential-product">
+    <section className="grocery-product">
       <img src={imgUrl} alt={name} />
       <button>
         <i className="fa-solid fa-plus"></i> Add
@@ -26,4 +26,4 @@ const Essential = ({
   );
 };
 
-export default Essential;
+export default AllGroceries;

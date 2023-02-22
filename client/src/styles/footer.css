@@ -79,12 +79,11 @@ li {
         "icons"
         ".";
     justify-items: left;
-
     gap: 10px;
     }
     
     .logo {
         justify-self: center;
     }
-
+    
 }
