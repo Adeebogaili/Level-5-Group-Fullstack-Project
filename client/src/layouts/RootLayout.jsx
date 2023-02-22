@@ -62,11 +62,11 @@ const RootLayout = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/contact"
+                to="/help"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Contact Us
+                Help
               </NavLink>
             </li>
           </ul>

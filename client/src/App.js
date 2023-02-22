@@ -9,6 +9,7 @@ import {
 
 // Layouts
 import RootLayout from "./layouts/RootLayout";
+import HelpLayout from "./layouts/HelpLayout";
 
 // Pages
 import Groceries from "./pages/Groceries";
@@ -16,7 +17,9 @@ import Kitchen from "./pages/Kitchen";
 import Essentials from "./pages/Essentials";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
+import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
+
 
 // Components
 import Footer from "./components/Footer";
@@ -29,7 +32,10 @@ const router = createBrowserRouter(
       <Route path="groceries" element={<Groceries />} />
       <Route path="kitchen" element={<Kitchen />} />
       <Route path="essentials" element={<Essentials />} />
-      <Route path="contact" element={<Contact />} />
+      <Route path="help" element={<HelpLayout />}>
+        <Route path="faq" element={<Faq />} />
+        <Route path="contact" element={<Contact />} />
+    </Route>
     </Route>
   )
 );
