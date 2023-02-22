@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/footer.css";
-import logo from "./project-logo-1.png";
-import carrot from "./carrot-background.svg";
+import logo from "../images/project-logo-1.png";
+import carrot from "../images/carrot-background.svg";
 
 const Footer = () => {
   return (
@@ -36,10 +36,18 @@ const Footer = () => {
         </ul>
       </div>
       <div className="icons">
+        <a href="#">
         <i className="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+        <a href="#">
         <i className="fa fa-twitter-square" aria-hidden="true"></i>
+        </a>
+        <a href="#">
         <i className="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+        <a href="#">
         <i className="fa fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </footer>
   );

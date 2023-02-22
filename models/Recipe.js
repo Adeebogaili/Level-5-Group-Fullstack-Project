@@ -11,10 +11,13 @@ const recipeSchema = new Schema({
     description: {
         type: String
     },
-    details: {
+    // details: {
+    //     type: Array
+    // },
+    ingredients: {
         type: Array
     },
-    ingredients: {
+    instructions: {
         type: Array
     },
     imgUrl: {

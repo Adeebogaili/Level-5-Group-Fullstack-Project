@@ -11,8 +11,11 @@ footer{
         ". . . .";
     justify-items: center;
     text-shadow: .5px .5px 1px black;
-    padding: 1rem;
-    font-size: 1rem;
+    padding: 2rem 1rem 0 1rem;
+}
+
+footer h2 {
+    margin-bottom: 1rem;
 }
 
 .logo {
@@ -41,9 +44,12 @@ footer{
 
 .icons {
     grid-area: icons;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 20px;
+    font-size: 1.3rem;
+}
+
+.icons a {
+    color: white;
+    margin: 0 .5rem;
 }
 
 ul {
@@ -73,7 +79,10 @@ li {
         "icons"
         ".";
     justify-items: left;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 2d9663880231b800da328cbf617e34a98010d73e
     gap: 10px;
     }
     
