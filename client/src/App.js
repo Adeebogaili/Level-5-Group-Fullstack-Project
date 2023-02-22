@@ -20,7 +20,6 @@ import Recipes from "./pages/Recipes";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 
-
 // Components
 import Footer from "./components/Footer";
 
