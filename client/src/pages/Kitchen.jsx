@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import AllKitchen from '../components/AllKitchen'
-import essential from "../styles/essentials.css"
+import allKitchen from "../styles/allKitchen.css"
 
 const Kitchen = () => {
 
@@ -19,9 +19,9 @@ const Kitchen = () => {
   }, [])
 
   return (
-    <div className='essentials'>
+    <div className='kitchen'>
       <h3>{`More than ${kitchenState.length} results for "essentials"`}</h3>
-      <div className='essential-wrapper'>
+      <div className='kitchen-wrapper'>
       {kitchenState.map(kitchenState => {
         return (
           <AllKitchen 
