@@ -11,6 +11,8 @@ footer{
         ". . . .";
     justify-items: center;
     text-shadow: .5px .5px 1px black;
+    padding: 1rem;
+    font-size: 1rem;
 }
 
 .logo {
@@ -52,6 +54,12 @@ li {
     list-style-type: none;
 }
 
+@media screen and (max-width: 470px) {
+   .carrot {
+    display: none;
+   }
+}
+
 @media screen and (max-width: 320px) {
     footer {
     display: grid;
@@ -65,7 +73,7 @@ li {
         "icons"
         ".";
     justify-items: left;
-    padding: 1rem;
+    
     gap: 10px;
     }
     
@@ -73,7 +81,4 @@ li {
         justify-self: center;
     }
 
-    .carrot {
-        display: none;
-    }
 }
