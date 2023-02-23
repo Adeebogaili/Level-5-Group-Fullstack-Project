@@ -10,9 +10,9 @@ const EssentialDetails = () => {
     const cartFunctions = cartContext.theFunctions
 
     const addToCart = () => {
-        cartFunctions.addToCart(fullState)
+        cartFunctions.addToCart(details)
         // console.log(cartContext.cart)
-      }
+    }
 
     const [details, setDetails] = useState({})
     const { id } = useParams()
@@ -38,7 +38,7 @@ const EssentialDetails = () => {
                         <h3>{details.name}</h3>
                     <div className='section-add'>
                         <p>${details.new_price}</p>
-                        <button>Add to cart</button>
+                        <button onClick={addToCart}>Add to cart</button>
                     </div>
                     </div>
                 </section>
