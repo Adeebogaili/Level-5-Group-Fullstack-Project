@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react'
 import AllKitchen from '../components/AllKitchen'
-import { CartContext } from '../context'
 import allKitchen from "../styles/allKitchen.css"
 
 const Kitchen = () => {
@@ -29,10 +28,6 @@ const Kitchen = () => {
   useEffect(() => {
     getKitchen()
   }, [])
-
-  const cartContext = useContext(CartContext)
-  const cartFunctions = cartContext.theFunctions
-  console.log(cartContext.cart)
 
   return (
     <div className='kitchen'>

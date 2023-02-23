@@ -10,6 +10,7 @@ const Kitchen = ({name, description, details, newPrice, oldPrice, type, imgUrl, 
 
   const addToCart = () => {
     cartFunctions.addToCart(fullState)
+    // console.log(cartContext.cart)
   }
 
     return(

@@ -54,6 +54,7 @@ const Groceries = () => {
               type={groceries.type}
               imgUrl={groceries.imgUrl}
               id={groceries._id}
+              fullState={groceries}
             />
           );
         })}
