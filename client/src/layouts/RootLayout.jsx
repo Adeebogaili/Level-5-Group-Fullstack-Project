@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
+
 import rootLayout from "../styles/rootLayout.css"
 
 const RootLayout = () => {
