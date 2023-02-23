@@ -36,7 +36,7 @@ const Essentials = () => {
       <div>
       <h4 className="filter-type">Filter by Type</h4>
       <select onChange={handleFilter} className="filter-form">
-        <option value="reset">All Groceries</option>
+        <option value="reset">All Essentials</option>
         <option value="laundry">Laundry</option>
         <option value="cleaners">Cleaning Supplies</option>
       </select>
