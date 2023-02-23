@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
-import rootLayout from "../styles/rootLayout.css"
+import { useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import CartDropDown from "../components/CartDropDown";
+import rootLayout from "../styles/rootLayout.css";
 
 const RootLayout = () => {
   const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(prevClick => !prevClick);
+  // const [hidden, setHidden] = useState[true];
+
+  const handleClick = () => setClick((prevClick) => !prevClick);
   return (
     <>
       <nav className="navbar">
@@ -16,11 +19,7 @@ const RootLayout = () => {
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink
-                to="/"
-                className="nav-links"
-                onClick={handleClick}
-              >
+              <NavLink to="/" className="nav-links" onClick={handleClick}>
                 Home
               </NavLink>
             </li>
@@ -61,15 +60,15 @@ const RootLayout = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                to="/help"
-                className="nav-links"
-                onClick={handleClick}
-              >
+              <NavLink to="/help" className="nav-links" onClick={handleClick}>
                 Help
               </NavLink>
             </li>
+            <li className="nav-item">
+              <i className="fa-solid fa-cart-shopping"></i>
+            </li>
           </ul>
+
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
           </div>
@@ -78,6 +77,6 @@ const RootLayout = () => {
       <Outlet />
     </>
   );
-}
+};
 
-export default RootLayout
+export default RootLayout;
