@@ -11,6 +11,7 @@ const EssentialDetails = () => {
 
     const addToCart = () => {
         cartFunctions.addToCart()
+        
         // console.log(cartContext.cart)
       }
 
