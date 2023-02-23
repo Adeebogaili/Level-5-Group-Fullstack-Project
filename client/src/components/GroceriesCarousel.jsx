@@ -1,8 +1,7 @@
 import React from "react";
-import allEssential from "../styles/allEssential.css";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const AllEssential = ({
+const GroceriesCarousel = ({
   name,
   description,
   details,
@@ -12,12 +11,11 @@ const AllEssential = ({
   imgUrl,
   id,
 }) => {
-
   return (
-    <section className="essential-product">
-      <Link to={`/essentialdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
-           <img src={imgUrl} alt={name} />
-    </Link>
+    <section className="grocery-product">
+      <Link to={`/grocerydetails/${id}`} style={{textDecoration: "none", color: "white"}}>
+      <img src={imgUrl} alt={name} />
+      </Link>
       <button>
         <i className="fa-solid fa-plus"></i> Add
       </button>
@@ -30,4 +28,4 @@ const AllEssential = ({
   );
 };
 
-export default AllEssential;
+export default GroceriesCarousel;

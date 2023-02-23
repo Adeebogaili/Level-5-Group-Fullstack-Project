@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.carousel-container {
+    margin: 2rem;
+}
+
 .sales-details {
     padding: 2rem;
     background-color: white;
@@ -31,6 +35,27 @@
     height: 100%;
 }
 
+.carousel-wrapper h3 {
+    margin-top: 1rem;
+    border-bottom: 1px solid rgb(235, 231, 231);
+
+}
+
+.carousel-header-wrapper {
+    text-align: center;
+}
+
+.carousel-header {
+    padding-top: 1rem;
+    border-top: 1px solid rgb(235, 231, 231);
+    font-size: 2rem;
+}
+
+.carousel-description {
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 960px) {
     .sales-details {
         padding: 2rem;
@@ -44,6 +69,7 @@
         margin-top: 1rem;
         font-size: 14px;
     }
+    
 }
 
 @media screen and (max-width: 500px) {
@@ -57,5 +83,4 @@
         margin-top: 1rem;
         font-size: 14px;
     }
-    
 }

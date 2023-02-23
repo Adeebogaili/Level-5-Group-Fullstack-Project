@@ -8,7 +8,6 @@ const GroceryDetails = () => {
     const [details, setDetails] = useState({})
     const { id } = useParams()
 
-    console.log(id)
     const getData = () => {
         axios
             .get(`/groceries/${id}`)
@@ -40,9 +39,9 @@ const GroceryDetails = () => {
                         {
                             details && details.details
                                 ?
-                                details.details.map(detail => (
+                                details.details.map((detail, index) => (
 
-                                    <><ul><li>{detail}</li></ul></>
+                                    <div key={index}><ul><li>{detail}</li></ul></div>
                                 ))
                                 :
                                 ""
