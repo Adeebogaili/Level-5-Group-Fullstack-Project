@@ -1,5 +1,5 @@
 .essential-product {
-    margin-top: 1rem;
+    margin-top: 2rem;
     height: 330px;
     position: relative;
     display: flex;
@@ -9,6 +9,11 @@
 
 .essential-product img {
     max-width: 190px;
+    transition: transform .2s ease-in;
+}
+
+.essential-product img:hover {
+    transform: scale(1.1);
 }
 
 .price-wrapper {

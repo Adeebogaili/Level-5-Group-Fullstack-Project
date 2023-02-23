@@ -14,9 +14,10 @@ const Essential = ({
 }) => {
 
   return (
-    <Link to={`/productdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
     <section className="essential-product">
-      <img src={imgUrl} alt={name} />
+      <Link to={`/productdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
+           <img src={imgUrl} alt={name} />
+    </Link>
       <button>
         <i className="fa-solid fa-plus"></i> Add
       </button>
@@ -26,7 +27,6 @@ const Essential = ({
       </div>
       <p className="product-name">{name}</p>
     </section>
-    </Link>
   );
 };
 

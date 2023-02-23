@@ -9,6 +9,11 @@
 
 .grocery-product img {
     max-width: 190px;
+    transition: transform .2s ease-in;
+}
+
+.grocery-product img:hover {
+    transform: scale(1.1);
 }
 
 .price-wrapper {
