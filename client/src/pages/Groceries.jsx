@@ -13,13 +13,34 @@ const Groceries = () => {
       .catch((err) => console.error(err));
   };
 
+  function handleFilter(e){
+    if(e.target.value === "reset"){
+      getGroceries()
+    } else {
+        axios
+      .get(`/groceries/search/type?type=${e.target.value}`)
+      .then(res => setGroceries(res.data))
+      .catch(err => console.error(err))
+    }
+  }
+
   useEffect(() => {
     getGroceries();
   }, []);
 
   return (
     <div className="groceries">
+      <div className="filter-wrapper">
       <h3>{`More than ${groceries.length} results for "groceries"`}</h3>
+      <div>
+      <h4 className="filter-type">Filter by Type</h4>
+      <select onChange={handleFilter} className="filter-form">
+        <option value="reset">All Groceries</option>
+        <option value="fruit">Fruits</option>
+        <option value="produce">Produce</option>
+      </select>
+      </div>
+      </div>
       <div className="groceries-wrapper">
         {groceries.map((groceries) => {
           return (

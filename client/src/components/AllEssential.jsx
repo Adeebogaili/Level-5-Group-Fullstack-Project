@@ -15,7 +15,7 @@ const Essential = ({
 
   return (
     <section className="essential-product">
-      <Link to={`/productdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
+      <Link to={`/essentialdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
            <img src={imgUrl} alt={name} />
     </Link>
       <button>

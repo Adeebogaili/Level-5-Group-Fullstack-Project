@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import productDetails from "../styles/productDetails.css"
 
-const EssentialDetails = () => {
+const GroceryDetails = () => {
 
     const [details, setDetails] = useState({})
     const { id } = useParams()
@@ -11,7 +11,7 @@ const EssentialDetails = () => {
     console.log(id)
     const getData = () => {
         axios
-            .get(`/essentials/${id}`)
+            .get(`/kitchen/${id}`)
             .then(res => setDetails(res.data))
             .catch(error => console.error(error))
     }
@@ -54,4 +54,4 @@ const EssentialDetails = () => {
     )
 }
 
-export default EssentialDetails
+export default GroceryDetails

@@ -20,6 +20,8 @@ import Recipes from "./pages/Recipes";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 import EssentialDetails from "./pages/EssentialDetails";
+import GroceryDetails from "./pages/GroceryDetails";
+import KitchenDetails from "./pages/KitchenDetails";
 
 // Components
 import Footer from "./components/Footer";
@@ -36,7 +38,9 @@ const router = createBrowserRouter(
         <Route path="faq" element={<Faq />} />
         <Route path="contact" element={<Contact />} />
     </Route>
-      <Route path="productdetails/:id" element={<EssentialDetails />} />
+      <Route path="essentialdetails/:id" element={<EssentialDetails />} />
+      <Route path="grocerydetails/:id" element={<GroceryDetails />} />
+      <Route path="kitchendetails/:id" element={<KitchenDetails />} />
     </Route>
   )
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/allGroceries.css";
+import { Link } from "react-router-dom";
 
 const AllGroceries = ({
   name,
@@ -13,7 +14,9 @@ const AllGroceries = ({
 }) => {
   return (
     <section className="grocery-product">
+      <Link to={`/grocerydetails/${id}`} style={{textDecoration: "none", color: "white"}}>
       <img src={imgUrl} alt={name} />
+      </Link>
       <button>
         <i className="fa-solid fa-plus"></i> Add
       </button>

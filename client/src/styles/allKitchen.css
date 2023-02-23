@@ -61,6 +61,24 @@
     padding: 2rem;
 }
 
+.filter-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-type {
+    font-size: 14px;
+}
+
+.filter-form {
+    color: #004E36;
+    margin-top: .5rem;
+    width: 150px;
+    padding: 5px 10px;
+    border: 1px solid #004E36;
+}
+
 @media screen and (max-width: 960px) {
     .kitchen-wrapper {
         grid-template-columns: repeat(3, 1fr);

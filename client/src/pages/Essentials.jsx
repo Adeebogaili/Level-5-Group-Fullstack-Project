@@ -14,13 +14,34 @@ const Essentials = () => {
         .catch(err => console.error(err))
   }
 
+  function handleFilter(e){
+    if(e.target.value === "reset"){
+      getEssentials()
+    } else {
+        axios
+      .get(`/essentials/search/type?type=${e.target.value}`)
+      .then(res => setEssentials(res.data))
+      .catch(err => console.error(err))
+    }
+  }
+
   useEffect(() => {
     getEssentials()
   }, [])
 
   return (
     <div className='essentials'>
+      <div className="filter-wrapper">
       <h3>{`More than ${essentials.length} results for "essentials"`}</h3>
+      <div>
+      <h4 className="filter-type">Filter by Type</h4>
+      <select onChange={handleFilter} className="filter-form">
+        <option value="reset">All Groceries</option>
+        <option value="laundry">Laundry</option>
+        <option value="cleaners">Cleaning Supplies</option>
+      </select>
+      </div>
+      </div>
       <div className='essential-wrapper'>
       {essentials.map(essential => {
         return (

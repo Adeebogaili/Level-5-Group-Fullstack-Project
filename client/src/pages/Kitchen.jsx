@@ -14,13 +14,35 @@ const Kitchen = () => {
       .catch(err => console.error(err))
   }
 
+  function handleFilter(e){
+    if(e.target.value === "reset"){
+      getKitchen()
+    } else {
+        axios
+      .get(`/kitchen/search/type?type=${e.target.value}`)
+      .then(res => setKitchenState(res.data))
+      .catch(err => console.error(err))
+    }
+  }
+
   useEffect(() => {
     getKitchen()
   }, [])
 
   return (
     <div className='kitchen'>
-      <h3>{`More than ${kitchenState.length} results for "essentials"`}</h3>
+      <div className="filter-wrapper">
+      <h3>{`More than ${kitchenState.length} results for "kitchen"`}</h3>
+      <div>
+      <h4 className="filter-type">Filter by Type</h4>
+      <select onChange={handleFilter} className="filter-form">
+        <option value="reset">All Groceries</option>
+        <option value="cookware">Cookware</option>
+        <option value="bag">Bags</option>
+        <option value="soap">Soap</option>
+      </select>
+      </div>
+      </div>
       <div className='kitchen-wrapper'>
       {kitchenState.map(kitchenState => {
         return (
