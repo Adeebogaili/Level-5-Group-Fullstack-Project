@@ -19,6 +19,7 @@ app.use("/groceries", require("./routes/groceriesRouter"))
 app.use("/essentials", require("./routes/essentialsRouter"))
 app.use("/kitchen", require("./routes/kitchenRouter"))
 app.use("/recipes", require("./routes/recipeRouter"))
+app.use("/sales", require("./routes/salesRouter"))
 
 // Error Handling
 app.use((err, req, res, next) => {
