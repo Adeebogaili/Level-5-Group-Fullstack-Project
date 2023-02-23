@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import CartDropDown from "../components/CartDropDown";
+import CartItem from "../components/CartItem"
 import rootLayout from "../styles/rootLayout.css";
 
 const RootLayout = () => {
   const [click, setClick] = useState(false);
+  const [hidden, setHidden] = useState(true)
 
-  // const [hidden, setHidden] = useState[true];
+  const toggleHidden = () => setHidden(!hidden) 
 
   const handleClick = () => setClick((prevClick) => !prevClick);
   return (
@@ -65,9 +67,13 @@ const RootLayout = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <i className="fa-solid fa-cart-shopping"></i>
+              <i
+                className="fa-solid fa-cart-shopping"
+                onClick={() => toggleHidden()}
+              ></i>
             </li>
           </ul>
+          {hidden ? null : <CartDropDown />}
 
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>

@@ -10,7 +10,7 @@ const EssentialDetails = () => {
     const cartFunctions = cartContext.theFunctions
 
     const addToCart = () => {
-        cartFunctions.addToCart(fullState)
+        cartFunctions.addToCart()
         // console.log(cartContext.cart)
       }
 
