@@ -1,5 +1,6 @@
 import React from "react";
 import allEssential from "../styles/allEssential.css";
+import { Link } from "react-router-dom"
 
 const Essential = ({
   name,
@@ -11,7 +12,9 @@ const Essential = ({
   imgUrl,
   id,
 }) => {
+
   return (
+    <Link to={`/productdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
     <section className="essential-product">
       <img src={imgUrl} alt={name} />
       <button>
@@ -23,6 +26,7 @@ const Essential = ({
       </div>
       <p className="product-name">{name}</p>
     </section>
+    </Link>
   );
 };
 

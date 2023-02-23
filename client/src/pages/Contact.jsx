@@ -13,7 +13,6 @@ function Contact() {
           className="name"
           placeholder="Your name....."
         />
-
         <label>Email</label>
         <input
           className="email"
