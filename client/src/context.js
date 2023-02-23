@@ -6,16 +6,22 @@ function CartContextProvider (props) {
 
     const [cart, setCart] = useState([])
 
-    const functions = {
+    const theFunctions = {
         addToCart: function addToCart (newCartItem) {
-            setCart (newCartItem)
+            setCart ((prevCart) => {
+                return[
+                    ...prevCart,
+                    newCartItem
+                ]
+            })
         }
     }
 
     return(
+        // <CartContext.Provider value={{
         <CartContext.Provider value={{
                 cart,
-                functions
+                theFunctions
             }}>
             {props.children}
         </CartContext.Provider>
