@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import AllKitchen from '../components/AllKitchen'
 import allKitchen from "../styles/allKitchen.css"
 
@@ -45,6 +45,7 @@ const Kitchen = () => {
       </div>
       <div className='kitchen-wrapper'>
       {kitchenState.map(kitchenState => {
+        // cartFunctions.addToCart (kitchenState)
         return (
           <AllKitchen 
             key={kitchenState._id}
@@ -56,6 +57,7 @@ const Kitchen = () => {
             type={kitchenState.type}
             imgUrl={kitchenState.imgUrl}
             id={kitchenState._id}
+            fullState={kitchenState}
           />
         )
       })}

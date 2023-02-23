@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { CartContext } from '../context'
 import allEssential from "../styles/allEssential.css";
 import { Link } from "react-router-dom"
 
@@ -11,14 +12,23 @@ const Essential = ({
   type,
   imgUrl,
   id,
+  fullState,
 }) => {
+
+  const cartContext = useContext(CartContext)
+  const cartFunctions = cartContext.theFunctions
+
+  const addToCart = () => {
+    cartFunctions.addToCart(fullState)
+    // console.log(cartContext.cart)
+  }
 
   return (
     <section className="essential-product">
       <Link to={`/essentialdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
            <img src={imgUrl} alt={name} />
     </Link>
-      <button>
+      <button onClick={addToCart}>
         <i className="fa-solid fa-plus"></i> Add
       </button>
       <div className="price-wrapper">
