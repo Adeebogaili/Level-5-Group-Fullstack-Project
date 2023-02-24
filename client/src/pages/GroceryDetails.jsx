@@ -12,6 +12,17 @@ const GroceryDetails = () => {
 
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
+    const [quantityState, setQuantityState] = useState(1)
+
+    function increassCart () {
+        cart.addOneToCart(id)
+        setQuantityState(productQuantity + 1)
+    }
+
+    function decreassCart () {
+        cart.removeOneFromCart(id)
+        setQuantityState(productQuantity - 1)
+    }
   
     const getData = () => {
         axios
@@ -34,7 +45,15 @@ const GroceryDetails = () => {
                         <h3>{details.name}</h3>
                     <div className='section-add'>
                         <p>${details.new_price}</p>
-                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
+                        {productQuantity > 0 ?
+                        <>
+                        <button onClick={increassCart} >+</button>
+                        <h1>{quantityState}</h1>
+                        <button onClick={decreassCart}>-</button>
+                        </>
+                        :    
+                        <button onClick={increassCart}>Add to cart</button>
+                        }
                     </div>
                     </div>
                 </section>
