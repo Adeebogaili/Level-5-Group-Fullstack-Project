@@ -1,10 +1,19 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import AllGroceries from "../components/AllGroceries";
 import "../styles/groceries.css";
+import { CartContext } from "../context";
 
 const Groceries = () => {
   const [groceries, setGroceries] = useState([]);
+
+  const cartContext = useContext(CartContext)
+    const cartFunctions = cartContext.theFunctions
+
+    const addToCart = () => {
+        cartFunctions.addToCart()
+        console.log(cartContext.cart)
+    }
 
   const getGroceries = () => {
     axios
