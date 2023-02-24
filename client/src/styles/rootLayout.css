@@ -96,7 +96,9 @@
       top: 80px;
       left: -110%;
       opacity: 1;
+      padding: 2rem;
       transition: all 0.5s ease;
+      margin-top: -2rem;
     }
 
     .nav-logo{

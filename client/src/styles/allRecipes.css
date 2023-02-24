@@ -7,40 +7,31 @@
     text-align: left;
 }
 
-.recipe img {
-    max-width: 190px;
-}
+.image-container {
+    border-radius: 5px;
+    max-width: 300px; /* set the width of the container to your desired size */
+    height: 200px; /* set the height of the container to your desired size */
+    overflow: hidden; /* hide any content that goes beyond the container */
+  }
 
-/* .recipe-wrapper {
-    margin-top: .8rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-} */
-
-/* .product-new-price {
-    font-size: 16px;
-    color: #043828;
-}
-
-.product-old-price {
-    font-weight: normal;
-    font-size: 12px;
-    text-decoration: line-through;
-} */
+  .recipe img {
+    width: 100%; /* set the width of the image to 100% to fill the container */
+    height: auto; /* allow the height to adjust proportionally */
+    object-fit: cover; /* scale the image to cover the entire container */
+  }
 
 .recipe-name {
-    max-width: 150px;
+    max-width: 200px;
+    margin-top: 1rem;
 }
 
 .recipes button {
     margin-top: 1rem;
     color: white;
     background-color: #043828;
-    width: 60px;
     padding: 10px;
     border: none;
-    border-radius: 25px;
     cursor: pointer;
+    border-radius: 5px;
 }
+

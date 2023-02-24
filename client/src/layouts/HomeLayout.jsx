@@ -1,18 +1,25 @@
 import { useState, useEffect} from 'react'
 import homeLayout from "../styles/homeLayout.css"
-import main from "../images/main.jpg"
-import hero from "../images/hero.jpg"
 import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import axios from 'axios'
+
+// Images
+import main from "../images/main.jpg"
+import hero from "../images/hero.jpg"
+import trees from "../images/trees.jpg"
+
+// Components
 import GroceriesCarousel from '../components/GroceriesCarousel'
 import KitchenCarousel from '../components/KitchenCarousel'
-import axios from 'axios'
+import EssentialsCarousel from '../components/EssentialsCarousel'
 
 const Home = () => {
 
   const [groceriesCarousel, setGroceriesCarousel] = useState([]);
   const [kitchenCarousel, setkitchenCarousel] = useState([]);
+  const [essentialsCarousel, setEssentialsCarousel] = useState([]);
 
   const getGroceries = () => {
     axios
@@ -28,9 +35,17 @@ const Home = () => {
       .catch((err) => console.error(err));
   };
 
+  const getEssentials = () => {
+    axios
+      .get("/essentials")
+      .then((res) => setEssentialsCarousel(res.data))
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     getGroceries();
     getKitchen()
+    getEssentials()
   }, []);
 
   const responsive = {
@@ -43,12 +58,20 @@ const Home = () => {
       breakpoint: { max: 3000, min: 1024 },
       items: 5
     },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
+    tablet1: {
+      breakpoint: { max: 1024, min: 960 },
+      items: 4
+    },
+    tablet2: {
+      breakpoint: { max: 960, min: 660 },
+      items: 3
+    },
+    tablet3: {
+      breakpoint: { max: 660, min: 460 },
       items: 2
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 460, min: 0 },
       items: 1
     }
   };
@@ -114,6 +137,27 @@ const Home = () => {
           );
         })}
           </Carousel>
+          <h3>Essentials</h3>
+          <Carousel 
+            responsive={responsive}   
+            infinite={true} 
+          >
+            {essentialsCarousel.map((essential) => {
+          return (
+            <EssentialsCarousel
+              key={essential._id}
+              name={essential.name}
+              description={essential.description}
+              details={essential.details}
+              newPrice={essential.new_price}
+              oldPrice={essential.old_price}
+              type={essential.type}
+              imgUrl={essential.imgUrl}
+              id={essential._id}
+            />
+          );
+        })}
+          </Carousel>
         </div>
       </div>
       <div className='image-wrapper'>
@@ -126,7 +170,10 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      
+      <div className='our-purpose'>
+        <img src={trees}/>
+        <h3>Our purpose is to nourish people and the planet.</h3>
+        </div>      
     </div>
   )
 }
