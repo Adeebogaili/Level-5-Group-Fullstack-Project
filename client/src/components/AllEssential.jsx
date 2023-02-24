@@ -18,8 +18,6 @@ const AllEssential = ({
   const cart = useContext(CartContext)
   const productQuantity = cart.getProductQuantity(id)
 
-  console.log(cart.items)
-
   return (
     <section className="essential-product">
       <Link to={`/essentialdetails/${id}`} style={{textDecoration: "none", color: "white"}}>

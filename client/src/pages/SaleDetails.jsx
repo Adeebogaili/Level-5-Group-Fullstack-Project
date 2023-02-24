@@ -1,5 +1,6 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { CartContext } from '../Context'
 import { useParams } from 'react-router-dom'
 import "../styles/productDetails.css"
 
@@ -8,6 +9,9 @@ const SalesDetails = () => {
     const [details, setDetails] = useState({})
     const { id } = useParams()
 
+    const cart = useContext(CartContext)
+    const productQuantity = cart.getProductQuantity(id)
+  
     console.log(id)
     const getData = () => {
         axios
@@ -30,7 +34,7 @@ const SalesDetails = () => {
                         <h3>{details.name}</h3>
                     <div className='section-add'>
                         <p>${details.new_price}</p>
-                        <button>Add to cart</button>
+                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
                     </div>
                     </div>
                 </section>

@@ -1,16 +1,18 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-// import { CartContext } from '../Context'
+import { CartContext } from '../Context'
 import { useParams } from 'react-router-dom'
 import "../styles/productDetails.css"
 
 const EssentialDetails = () => {
 
-    // const cartContext = useContext(CartContext)
-
+    
     const [details, setDetails] = useState({})
     const { id } = useParams()
-
+    
+    const cart = useContext(CartContext)
+    const productQuantity = cart.getProductQuantity(id)
+  
     const getData = () => {
         axios
             .get(`/essentials/${id}`)
@@ -32,7 +34,7 @@ const EssentialDetails = () => {
                         <h3>{details.name}</h3>
                     <div className='section-add'>
                         <p>${details.new_price}</p>
-                        <button>Add to cart</button>
+                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
                     </div>
                     </div>
                 </section>
