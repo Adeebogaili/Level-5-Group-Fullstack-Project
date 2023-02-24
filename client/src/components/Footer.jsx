@@ -12,11 +12,11 @@ const Footer = () => {
       <div className="shopping">
         <h2>Shopping</h2>
         <ul>
-          <li>Weekly Sales</li>
+          <li><a href="http://localhost:3000/sales">Weekly Sales</a></li>
           <li>Browse Products</li>
           <li>Delivery and Pickup</li>
           <li>Gift Cards</li>
-          <li>Recipes</li>
+          <li><a href="http://localhost:3000/recipes">Recipes</a></li>
         </ul>
       </div>
       <div className="about">
@@ -31,8 +31,8 @@ const Footer = () => {
       <div className="help">
         <h2>Help</h2>
         <ul>
-          <li>FAQ</li>
-          <li>Contact Us</li>
+          <li><a href="http://localhost:3000/help/faq">FAQ</a></li>
+          <li><a href="http://localhost:3000/help/contact">Contact Us</a></li>
         </ul>
       </div>
       <div className="icons">

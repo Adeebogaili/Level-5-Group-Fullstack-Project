@@ -26,7 +26,7 @@
 
 .product-new-price {
     font-size: 16px;
-    color: #043828;
+    color: #004E36;
 }
 
 .product-old-price {
@@ -42,10 +42,14 @@
 .grocery-product button {
     margin-top: 1rem;
     color: white;
-    background-color: #043828;
+    background-color: #004E36;
     width: 60px;
     padding: 10px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
+}
+
+.grocery-product button:hover {
+    background-color: #043828;
 }

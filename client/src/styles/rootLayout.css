@@ -62,11 +62,6 @@
     cursor: pointer;
   }
 
-  .fa-solid .active {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 25px;
-  }
-
   .fa-code {
     margin-left: 1rem;
   }
@@ -75,13 +70,16 @@
     line-height: 40px;
     margin-right: 1rem;
   }
-    
+
   .nav-item .active {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 25px;
   }
 
-  
+  .nav-item:hover {
+    text-decoration: underline white;
+  }
+
   .nav-icon {
     display: none;
   }
