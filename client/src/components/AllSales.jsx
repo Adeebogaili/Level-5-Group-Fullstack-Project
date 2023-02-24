@@ -1,4 +1,5 @@
-import React from "react";
+import {useContext} from "react";
+import { CartContext } from '../Context'
 import { Link } from "react-router-dom";
 import "../styles/allSales.css"
 
@@ -12,12 +13,16 @@ const AllSales = ({
   imgUrl,
   id,
 }) => {
+
+  const cart = useContext(CartContext)
+  const productQuantity = cart.getProductQuantity(id)
+
   return (
     <section className="sale-product">
       <Link to={`/saledetails/${id}`} style={{textDecoration: "none", color: "white"}}>
       <img src={imgUrl} alt={name} />
       </Link>
-      <button>
+      <button onClick={() => cart.addOneToCart(id)}>
         <i className="fa-solid fa-plus"></i> Add
       </button>
       <div className="price-wrapper">
