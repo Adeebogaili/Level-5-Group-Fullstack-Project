@@ -55,6 +55,7 @@ const Essentials = () => {
             type={essential.type}
             imgUrl={essential.imgUrl}
             id={essential._id}
+            fullState={essential}
           />
         )
       })}

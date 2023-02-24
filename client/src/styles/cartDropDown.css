@@ -1,0 +1,37 @@
+.cart-dropdown {
+    position: absolute;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgb(190, 189, 189);
+    background-color: white;
+    top: 60px;
+    right: 0;
+    z-index: 5;
+}
+.cart-item {
+    background-color: pink;
+    margin: 1rem;
+    /* height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll; */
+}
+
+.empty-message {
+    font-size: 18px;
+    margin: 50px auto;
+}
+
+button {
+    background-color:#004E36;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
