@@ -9,6 +9,8 @@ const SalesDetails = () => {
     const [details, setDetails] = useState({})
     const { id } = useParams()
 
+    console.log(CartContext)
+
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
   
@@ -34,7 +36,7 @@ const SalesDetails = () => {
                         <h3>{details.name}</h3>
                     <div className='section-add'>
                         <p>${details.new_price}</p>
-                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
+                        {/* <button onClick={() => cart.addOneToCart(id)}>Add to cart</button> */}
                     </div>
                     </div>
                 </section>
