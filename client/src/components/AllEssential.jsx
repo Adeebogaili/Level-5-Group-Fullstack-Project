@@ -15,13 +15,12 @@ const AllEssential = ({
   fullState,
 }) => {
 
-  const cartContext = useContext(CartContext)
-  const cartFunctions = cartContext.theFunctions
+  const cart = useContext(CartContext)
 
-  const addToCart = () => {
-    cartFunctions.addToCart(fullState)
-    // console.log(cartContext.cart)
-  }
+  // const addToCart = () => {
+  //   cartFunctions.addToCart(fullState)
+  //   // console.log(cartContext.cart)
+  // }
 
   return (
     <section className="essential-product">
