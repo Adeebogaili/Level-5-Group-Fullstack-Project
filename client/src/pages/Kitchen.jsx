@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react'
 import AllKitchen from '../components/AllKitchen'
-import allKitchen from "../styles/allKitchen.css"
+import "../styles/allKitchen.css"
 
 const Kitchen = () => {
 

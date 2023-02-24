@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import allKitchen from "../styles/allKitchen.css"
+import "../styles/allKitchen.css"
 import { CartContext } from '../context'
 import { Link } from "react-router-dom"
 

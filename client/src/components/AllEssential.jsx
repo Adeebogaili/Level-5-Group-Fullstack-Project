@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from '../context'
-import allEssential from "../styles/allEssential.css";
+import "../styles/allEssential.css";
 import { Link } from "react-router-dom"
 
 const AllEssential = ({

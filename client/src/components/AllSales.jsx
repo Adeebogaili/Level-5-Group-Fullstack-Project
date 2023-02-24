@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import allSales from "../styles/allSales.css"
+import "../styles/allSales.css"
 
 const AllSales = ({
   name,

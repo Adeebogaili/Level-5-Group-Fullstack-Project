@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AllSales from "../components/AllSales";
-import sales from "../styles/sales.css"
+import "../styles/sales.css"
 
 const Sales = () => {
   const [sales, setSales] = useState([]);

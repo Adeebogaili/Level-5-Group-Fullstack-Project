@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import productDetails from "../styles/productDetails.css"
+import "../styles/productDetails.css"
 
 const GroceryDetails = () => {
 
@@ -16,6 +16,7 @@ const GroceryDetails = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0,0)
         getData()
     }, [])
 

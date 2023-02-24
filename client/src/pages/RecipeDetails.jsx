@@ -1,26 +1,15 @@
 import axios from 'axios'
-import React, { useState, useEffect, useContext } from 'react'
-import { CartContext } from '../context'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import "../styles/productDetails.css"
 
-const EssentialDetails = () => {
-
-    const cartContext = useContext(CartContext)
-    const cartFunctions = cartContext.theFunctions
-
-    const addToCart = () => {
-        cartFunctions.addToCart()
-        
-        // console.log(cartContext.cart)
-      }
+const RecipeDetails = () => {
 
     const [details, setDetails] = useState({})
     const { id } = useParams()
 
     const getData = () => {
         axios
-            .get(`/essentials/${id}`)
+            .get(`/recipes/${id}`)
             .then(res => setDetails(res.data))
             .catch(error => console.error(error))
     }
@@ -38,21 +27,34 @@ const EssentialDetails = () => {
                     <div className="section-details">
                         <h3>{details.name}</h3>
                     <div className='section-add'>
-                        <p>${details.new_price}</p>
-                        <button>Add to cart</button>
+                        <button><i className="fa-solid fa-plus"></i> Get ingredients</button>
                     </div>
                     </div>
                 </section>
                 <section className='description-section'>
                     <h3>Product description</h3>
                     <p>{details.description}</p>
-                    <div className="product-details">
-                        {
-                            details && details.details
+                    <div className="product-details"> 
+                    <h3>Ingredients</h3>                   
+                    {
+                            details && details.ingredients
                                 ?
-                                details.details.map((detail, index)=> (
+                                details.ingredients.map((detail, index) => (
 
                                     <div key={index}><ul><li>{detail}</li></ul></div>
+                                ))
+                                :
+                                ""
+                        }
+                        </div>
+                        <div className="product-instructions">
+                            <h3>Instructions</h3>
+                        {
+                            details && details.instructions
+                                ?
+                                details.instructions.map((detail, index) => (
+
+                                    <div key={index}><ol><li>{detail}</li></ol></div>
                                 ))
                                 :
                                 ""
@@ -64,4 +66,4 @@ const EssentialDetails = () => {
     )
 }
 
-export default EssentialDetails
+export default RecipeDetails

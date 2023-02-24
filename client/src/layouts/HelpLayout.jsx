@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import helpLayout from "../styles/helpLayout.css"
+import "../styles/helpLayout.css"
 import berries from "../images/berries.png"
 import peaches from "../images/peaches.png"
 

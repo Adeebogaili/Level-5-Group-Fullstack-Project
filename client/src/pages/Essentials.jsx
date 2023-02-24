@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import AllEssential from '../components/AllEssential'
-import essential from "../styles/essentials.css"
+import "../styles/essentials.css"
 
 const Essentials = () => {
 

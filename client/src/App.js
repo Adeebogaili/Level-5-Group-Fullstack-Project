@@ -19,11 +19,12 @@ import Essentials from "./pages/Essentials";
 import Recipes from "./pages/Recipes";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
+import Sales from "./pages/Sales";
 import EssentialDetails from "./pages/EssentialDetails";
 import GroceryDetails from "./pages/GroceryDetails";
 import KitchenDetails from "./pages/KitchenDetails";
 import SalesDetails from "./pages/SaleDetails";
-import Sales from "./pages/Sales";
+import RecipeDetails from "./pages/RecipeDetails";
 
 // Components
 import Footer from "./components/Footer";
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
       <Route path="essentialdetails/:id" element={<EssentialDetails />} />
       <Route path="grocerydetails/:id" element={<GroceryDetails />} />
       <Route path="kitchendetails/:id" element={<KitchenDetails />} />
+      <Route path="recipedetails/:id" element={<RecipeDetails />} />
       <Route path="saledetails/:id" element={<SalesDetails />} />
     </Route>
   )

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import CartDropDown from "../components/CartDropDown";
 import CartItem from "../components/CartItem"
-import rootLayout from "../styles/rootLayout.css";
+import "../styles/rootLayout.css";
 
 const RootLayout = () => {
   const [click, setClick] = useState(false);

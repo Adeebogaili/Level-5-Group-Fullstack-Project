@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react'
-import homeLayout from "../styles/homeLayout.css"
+import "../styles/homeLayout.css"
 import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
