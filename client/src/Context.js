@@ -9,7 +9,7 @@ const CartContext = createContext({
     getTotalCost: () => {}
 })
 
-export function CartProvider({children}) {
+export default function CartProvider({children}) {
     const [cartProducts, setCartProducts] = useState([])
 
     function getProductQuantity (id) {
@@ -92,4 +92,4 @@ export function CartProvider({children}) {
     )
 }
 
-export { CartContext };
+export { CartContext, CartProvider };
