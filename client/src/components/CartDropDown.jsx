@@ -53,54 +53,18 @@ const CartDropdown = (props) => {
     getKitchen()
     getGroceriesNew()
   }, [])
-  
-  // new var for mapped products
-  let newEssentials = []
-  let newGroceries = []
-  let newKitchen = []
+
 
   //main cart map
   cart.items.map((product, index) => {
-
-    //map function for products 
-    // function maping (theState, newArry) {
-    //   theState.map((item) => {
-    //     if (theState._id === product.id) {
-    //       const itemWithNum = {...item, quantity: product.quantity}
-    //       // console.log(product)
-    //       newArry.push(itemWithNum)
-    //       setNum((oldNum) => oldNum + 1)
-    //       // console.log(newArry)
-    //     }
-    //   })
-    // }
-
-    
-    // function maping (theState, newArry) {
-      //   theState.map((item) => {
-        //     if (theState._id === product.id) {
-          //       const itemWithNum = {...item, quantity: product.quantity}
-          //       // console.log(product)
-          //       newArry.push(itemWithNum)
-          //       setNum((oldNum) => oldNum + 1)
-          //       // console.log(newArry)
-          //     }
-          //   })
-          // }
-          
-          //calling map function for proudocts 
-
-          // maping(essentials, newEssentials)
-          // maping(groceries, newGroceries)
-          // maping(kitchenState, newKitchen)
-        })  
+  })  
 
   const getGroceriesNew = () => {
     axios
       .get("/groceries")
       .then((res) => 
+      res.data.map((item) => {
       cart.items.map((product) => {
-        res.data.map((item) => {
           // console.log(res.data)
           // console.log(item._id)
           // console.log(product.id)
@@ -113,6 +77,7 @@ const CartDropdown = (props) => {
               // console.log(prevItems)
               return [
                 ...prevItems, item
+                // item
               ]
             })
             // console.log(groceries)
@@ -122,32 +87,18 @@ const CartDropdown = (props) => {
       .catch((err) => console.error(err));
   };
 
-  // useEffect(() => {
-  //   // setFilteredEssentials((prevEssential) => {
-  //   //   return[...prevEssential, newEssentials]
-  //   // })
-  //   setFilteredEssentials(newEssentials)
-  //   console.log("hello world")
-  // }, num)
-
-  // console.log(filteredEssentials)
-  // console.log(num)
+  // console.log(groceries)
+  // console.log(groceries[0])
+  // console.log(groceries[0].name)
 
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
 
-       {essentials.map(() => {
-        return (
+      {groceries.map(item => {
+        return(
           <>
-          {groceries.map((item) => {
-            return (
-              <div>{item.new_price}</div>
-            )
-          })}
-            {/* <CartItem 
-              arryState={filteredEssentials}
-            /> */}
+            <h5>{item.name}</h5>
           </>
         )
       })}
@@ -159,10 +110,3 @@ const CartDropdown = (props) => {
 };
 
 export default CartDropdown;
-
-// <CartItem 
-//   newArry={newGroceries}
-// />
-// <CartItem 
-//   newArry={newKitchen}
-// />
