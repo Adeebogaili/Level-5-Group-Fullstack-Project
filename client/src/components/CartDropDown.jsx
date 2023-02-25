@@ -4,7 +4,6 @@ import CartItem from './CartItem'
 import { CartContext } from '../Context'
 import Essentials from '../pages/Essentials';
 import "../styles/cartDropDown.css";
-import { response } from 'express';
 
 const CartDropdown = (props) => {
 
