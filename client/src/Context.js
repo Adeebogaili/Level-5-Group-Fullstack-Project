@@ -24,6 +24,7 @@ export default function CartProvider({children}) {
 
     function addOneToCart(id) {
         const quantity =  getProductQuantity(id)
+        // const quantity =  getProductQuantity(id, theName)
 
         if (quantity === 0) {
             setCartProducts(
@@ -31,7 +32,8 @@ export default function CartProvider({children}) {
                     ...cartProducts,
                     {
                         id: id,
-                        quantity: 1
+                        quantity: 1,
+                        // theName
                     }
                 ]
             )
