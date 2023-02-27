@@ -1,8 +1,8 @@
 import React from 'react'
-import {CartProvider} from "../context"
+import {CartProvider} from "../Context"
 
-const CartItem = () => {
+export default function CartItem (props) {
   return (
-    <div className='cart-item'>{}</div>
+    <div className='cart-item'>{props.item.name}</div>
   )
 }
