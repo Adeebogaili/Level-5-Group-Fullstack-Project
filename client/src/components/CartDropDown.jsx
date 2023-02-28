@@ -48,6 +48,7 @@ const CartDropdown = (props) => {
 
   return (
     <div className="cart-dropdown">
+      <h3>Cart (<span>{productCount} items</span>)</h3>
       <div className="cart-items">
 
       {groceries.map(item => {
@@ -87,7 +88,7 @@ const CartDropdown = (props) => {
         )
       })}
       </div>
-        <button>Checkout ({productCount} Items)</button>
+        <button>Checkout</button>
     </div>
   );
 };

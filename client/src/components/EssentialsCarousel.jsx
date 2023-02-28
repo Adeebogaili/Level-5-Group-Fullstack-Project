@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context";
 
 const EssentialsCarousel = ({
   name,
@@ -11,12 +12,14 @@ const EssentialsCarousel = ({
   imgUrl,
   id,
 }) => {
+
+  const cart = useContext(CartContext)
   return (
     <section className="essential-product">
       <Link to={`/essentialdetails/${id}`} style={{textDecoration: "none", color: "white"}}>
       <img src={imgUrl} alt={name} />
       </Link>
-      <button>
+      <button onClick={()=> cart.addOneToCart(id)}>
         <i className="fa-solid fa-plus"></i> Add
       </button>
       <div className="price-wrapper">
