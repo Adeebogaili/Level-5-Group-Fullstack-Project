@@ -13,16 +13,16 @@ const SalesDetails = () => {
 
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
-    const [quantityState, setQuantityState] = useState(1)
+    const [quantityState, setQuantityState] = useState(productQuantity)
 
     function increassCart () {
         cart.addOneToCart(id)
-        setQuantityState(productQuantity + 1)
+        setQuantityState(prevQuantity => prevQuantity + 1)
     }
 
     function decreassCart () {
         cart.removeOneFromCart(id)
-        setQuantityState(productQuantity - 1)
+        setQuantityState(prevQuantity => prevQuantity - 1)
     }
   
     console.log(id)

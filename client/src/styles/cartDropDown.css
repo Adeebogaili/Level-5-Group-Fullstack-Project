@@ -29,7 +29,7 @@
     margin: 50px auto;
 }
 
-.cart-dropdown button {
+.cart-dropdown .checkout-button {
     background-color:#004E36;
     border: none;
     color: white;

@@ -52,7 +52,6 @@ const CartDropdown = (props) => {
       <div className="cart-items">
 
       {groceries.map(item => {
-        console.log(item._id)
         return(
           <CartItem
             item={item}
@@ -61,7 +60,6 @@ const CartDropdown = (props) => {
         )
       })}
       {essentials.map(item => {
-        console.log(item._id)
         return(
           <CartItem
             item={item}
@@ -70,7 +68,6 @@ const CartDropdown = (props) => {
         )
       })}
       {kitchenState.map(item => {
-        console.log(item._id)
         return(
           <CartItem
             item={item}
@@ -79,7 +76,6 @@ const CartDropdown = (props) => {
         )
       })}
       {sales.map(item => {
-        console.log(item._id)
         return(
           <CartItem
             item={item}
@@ -88,7 +84,7 @@ const CartDropdown = (props) => {
         )
       })}
       </div>
-        <button>Checkout</button>
+        <button className='checkout-button'>Checkout</button>
     </div>
   );
 };
