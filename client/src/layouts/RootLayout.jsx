@@ -66,13 +66,14 @@ const RootLayout = () => {
                 Help
               </NavLink>
             </li>
-            <li className="nav-item">
+            
+          </ul>
+          <div className="nav-item-cart">
               <i
                 className="fa-solid fa-cart-shopping"
                 onClick={() => toggleHidden()}
               ></i>
-            </li>
-          </ul>
+            </div>
           {hidden ? null : <CartDropDown />}
 
           <div className="nav-icon" onClick={handleClick}>

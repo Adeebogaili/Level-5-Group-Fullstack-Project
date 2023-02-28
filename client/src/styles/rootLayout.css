@@ -70,6 +70,9 @@
     line-height: 40px;
     margin-right: 1rem;
   }
+  .nav-item-cart {
+    margin-right: 1rem;
+  }
 
   .nav-item .active {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -132,6 +135,10 @@
       transform: translate(-100%, 60%);
       cursor: pointer;
       color: #fff;
+    }
+    .nav-item-cart {
+      position: absolute;
+      right: 30px;
     }
   }
   

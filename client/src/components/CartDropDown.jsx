@@ -10,6 +10,7 @@ const CartDropdown = (props) => {
   const [essentials, setEssentials] = useState([])
   const [kitchenState, setKitchenState] = useState([])
   const [groceries, setGroceries] = useState([]);
+  const [sales, setSales] = useState([]);
 
   // set context
   const cart = useContext(CartContext);
@@ -24,6 +25,7 @@ const CartDropdown = (props) => {
     apiCall("essentials", setEssentials)
     apiCall("groceries", setGroceries)
     apiCall("kitchen", setKitchenState)
+    apiCall("sales", setSales)
   }, [])
 
   function apiCall (url, setState) {
@@ -57,8 +59,35 @@ const CartDropdown = (props) => {
           />
         )
       })}
-        <button>Checkout ({productCount} Items)</button>
+      {essentials.map(item => {
+        console.log(item._id)
+        return(
+          <CartItem
+            item={item}
+            key={item._id}
+          />
+        )
+      })}
+      {kitchenState.map(item => {
+        console.log(item._id)
+        return(
+          <CartItem
+            item={item}
+            key={item._id}
+          />
+        )
+      })}
+      {sales.map(item => {
+        console.log(item._id)
+        return(
+          <CartItem
+            item={item}
+            key={item._id}
+          />
+        )
+      })}
       </div>
+        <button>Checkout ({productCount} Items)</button>
     </div>
   );
 };
