@@ -13,17 +13,6 @@ const SalesDetails = () => {
 
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
-    const [quantityState, setQuantityState] = useState(productQuantity)
-
-    function increassCart () {
-        cart.addOneToCart(id)
-        setQuantityState(prevQuantity => prevQuantity + 1)
-    }
-
-    function decreassCart () {
-        cart.removeOneFromCart(id)
-        setQuantityState(prevQuantity => prevQuantity - 1)
-    }
   
     const getData = () => {
         axios
@@ -48,18 +37,18 @@ const SalesDetails = () => {
                     <img src={details.imgUrl} alt={details.name} />
                     <div className="section-details">
                         <h3>{details.name}</h3>
-                    <div className='section-add'>
+                        <div className='section-add'>
                         <p>${details.new_price}</p>
                         {productQuantity > 0 ?
                         <>
-                        <button onClick={increassCart} >+</button>
-                        <h1>{quantityState}</h1>
-                        <button onClick={decreassCart}>-</button>
+                        <button onClick={() => cart.addOneToCart(id)} >+</button>
+                        <h1>{productQuantity}</h1>
+                        <button onClick={() => cart.removeOneFromCart(id)}>-</button>
                         </>
                         :    
-                        <button onClick={increassCart}>Add to cart</button>
+                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
                     }
-                    </div>
+                        </div>
                     </div>
                 </section>
                 <section className='description-section'>

@@ -1,73 +1,107 @@
-import React, { useState, createContext } from "react";
+import { createContext, useState } from "react";
 
-const CartContext = createContext({
-  items: [],
-  getProductQuantity: () => {},
-  addOneToCart: () => {},
-  removeOneFromCart: () => {},
-  deleteFromCart: () => {},
+export const CartContext = createContext({
+    items: [],
+    getProductQuantity: () => {},
+    addOneToCart: () => {},
+    removeOneFromCart: () => {},
+    deleteFromCart: () => {},
+    getTotalCost: () => {}
 });
 
-function CartProvider({ children }) {
-  const [cartProducts, setCartProducts] = useState([]);
+export function CartProvider({children}) {
+    const [cartProducts, setCartProducts] = useState([]);
+    
+    function getProductQuantity(id) {
+        const quantity = cartProducts.find(product => product.id === id)?.quantity;
+        
+        if (quantity === undefined) {
+            return 0;
+        }
 
-  function getProductQuantity(id) {
-    const quantity = cartProducts.find((product) => product.id === id)?.quantity;
-
-    if (quantity === undefined) {
-      return 0;
+        return quantity;
     }
 
-    return quantity;
-  }
+    function addOneToCart(id) {
+        const quantity = getProductQuantity(id);
 
-  function addOneToCart(id) {
-    const quantity = getProductQuantity(id);
+        if (quantity === 0) {
+            setCartProducts(
+                [
+                    ...cartProducts,
+                    {
+                        id: id,
+                        quantity: 1
+                    }
+                ]
+            )
+        } else { 
+            setCartProducts(
+                cartProducts.map(
+                    product =>
+                    product.id === id                               
+                    ? { ...product, quantity: product.quantity + 1 } 
+                    : product                                        
+                )
+            )
+        }
+    }
 
-    if (quantity === 0) {
-      setCartProducts([
-        ...cartProducts,
-        {
-          id: id,
-          quantity: 1,
-        },
-      ]);
-    } else {
-      setCartProducts(
-        cartProducts.map((product) =>
-          product.id === id ? { ...product, quantity: product.quantity + 1 } : product
+    function removeOneFromCart(id) {
+        const quantity = getProductQuantity(id);
+
+        if(quantity == 1) {
+            deleteFromCart(id);
+        } else {
+            setCartProducts(
+                cartProducts.map(
+                    product =>
+                    product.id === id                                
+                    ? { ...product, quantity: product.quantity - 1 } 
+                    : product                                       
+                )
+            )
+        }
+    }
+
+    function deleteFromCart(id) {
+        setCartProducts(
+            cartProducts =>
+            cartProducts.filter(currentProduct => {
+                return currentProduct.id != id;
+            })  
         )
-      );
     }
-  }
 
-  function removeOneFromCart(id) {
-    const quantity = getProductQuantity(id);
+    // function getTotalCost() {
+    //     let totalCost = 0;
+    //     cartProducts.map((cartItem) => {
+    //         const productData = getProductData(cartItem.id);
+    //         totalCost += (productData.price * cartItem.quantity);
+    //     });
+    //     return totalCost;
+    // }
 
-    if (quantity === 1) {
-      deleteFromCart(id);
-    } else {
-      setCartProducts(
-        cartProducts.map((product) =>
-          product.id === id ? { ...product, quantity: product.quantity - 1 } : product
-        )
-      );
+    const contextValue = {
+        items: cartProducts,
+        getProductQuantity,
+        addOneToCart,
+        removeOneFromCart,
+        deleteFromCart,
+        // getTotalCost
     }
-  }
 
-  function deleteFromCart(id) {
-    setCartProducts(cartProducts.filter((currentProduct) => currentProduct.id !== id));
-  }
-
-  const contextValue = {
-    items: cartProducts,
-    getProductQuantity,
-    addOneToCart,
-    removeOneFromCart,
-    deleteFromCart,
-  };
-
-  return <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
+    return (
+        <CartContext.Provider value={contextValue}>
+            {children}
+        </CartContext.Provider>
+    )
 }
 
-export { CartContext, CartProvider };
+export default CartProvider;
+
+
+// CODE DOWN HERE
+
+// Context (cart, addToCart, removeCart)
+// Provider -> gives your React app access to all the things in your context

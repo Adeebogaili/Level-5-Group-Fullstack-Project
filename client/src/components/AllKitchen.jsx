@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 const Kitchen = ({name, description, details, newPrice, oldPrice, type, imgUrl, id, fullState}) => {
 
   const cart = useContext(CartContext)
-  const productQuantity = cart.getProductQuantity(id)
 
     return(
         <section className='kitchen-product'>

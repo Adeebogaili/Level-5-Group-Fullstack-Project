@@ -16,7 +16,6 @@ const AllGroceries = ({
 }) => {
 
   const cart = useContext(CartContext)
-  const productQuantity = cart.getProductQuantity(id)
 
   return (
     <section className="grocery-product">

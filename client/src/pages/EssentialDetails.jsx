@@ -13,17 +13,6 @@ const EssentialDetails = () => {
     
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
-    const [quantityState, setQuantityState] = useState(productQuantity)
-
-    function increassCart () {
-        cart.addOneToCart(id)
-        setQuantityState(prevQuantity => prevQuantity + 1)
-    }
-
-    function decreassCart () {
-        cart.removeOneFromCart(id)
-        setQuantityState(prevQuantity => prevQuantity - 1)
-    }
   
     if(!isLoaded) return <h2>Loading...</h2>
 
@@ -38,12 +27,12 @@ const EssentialDetails = () => {
                         <p>${details.new_price}</p>
                         {productQuantity > 0 ?
                         <>
-                        <button onClick={increassCart} >+</button>
-                        <h1>{quantityState}</h1>
-                        <button onClick={decreassCart}>-</button>
+                        <button onClick={() => cart.addOneToCart(id)} >+</button>
+                        <h1>{productQuantity}</h1>
+                        <button onClick={() => cart.removeOneFromCart(id)}>-</button>
                         </>
                         :    
-                        <button onClick={increassCart}>Add to cart</button>
+                        <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
                     }
                     </div>
                     </div>

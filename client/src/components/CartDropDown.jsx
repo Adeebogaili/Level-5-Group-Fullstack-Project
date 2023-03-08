@@ -56,6 +56,7 @@ const CartDropdown = () => {
           <CartItem
             item={item}
             key={item._id}
+            quantity={cart.getProductQuantity(item.id)}
           />
         )
       })}
@@ -64,6 +65,7 @@ const CartDropdown = () => {
           <CartItem
             item={item}
             key={item._id}
+            quantity={cart.getProductQuantity(item.id)}
           />
         )
       })}
@@ -72,6 +74,7 @@ const CartDropdown = () => {
           <CartItem
             item={item}
             key={item._id}
+            quantity={cart.getProductQuantity(item.id)}
           />
         )
       })}
@@ -80,6 +83,7 @@ const CartDropdown = () => {
           <CartItem
             item={item}
             key={item._id}
+            quantity={cart.getProductQuantity(item.id)}
           />
         )
       })}
