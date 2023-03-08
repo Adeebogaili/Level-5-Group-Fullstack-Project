@@ -1,25 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import AllGroceries from "../components/AllGroceries";
+import useGroceries from "../hooks/useGroceries";
 import "../styles/groceries.css";
-// import { CartContext } from "../context";
+
 
 const Groceries = () => {
-  const [groceries, setGroceries] = useState([]);
 
-  // const cartContext = useContext(CartContext)
+  const { groceries, setGroceries, getGroceries, isGroceryLoaded} = useGroceries()
 
-  //   const addToCart = () => {
-  //       cartFunctions.addToCart()
-  //       console.log(cartContext.cart)
-  //   }
-
-  const getGroceries = () => {
-    axios
-      .get("/groceries")
-      .then((res) => setGroceries(res.data))
-      .catch((err) => console.error(err));
-  };
 
   function handleFilter(e){
     if(e.target.value === "reset"){
@@ -32,9 +21,7 @@ const Groceries = () => {
     }
   }
 
-  useEffect(() => {
-    getGroceries();
-  }, []);
+  if(!isGroceryLoaded) return <h2>Loading...</h2>
 
   return (
     <div className="groceries">

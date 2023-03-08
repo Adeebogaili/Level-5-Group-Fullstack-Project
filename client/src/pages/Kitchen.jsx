@@ -1,38 +1,30 @@
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react'
 import AllKitchen from '../components/AllKitchen'
+import useKitchen from '../hooks/useKitchen'
 import "../styles/allKitchen.css"
 
 const Kitchen = () => {
 
-  const [kitchenState, setKitchenState] = useState([])
-
-  const getKitchen = () => {
-    axios
-      .get("/kitchen")
-      .then(res => setKitchenState(res.data))
-      .catch(err => console.error(err))
-  }
-
+  const {kitchen, setKitchen, getKitchen, isKitchenLoaded} = useKitchen()
+ 
   function handleFilter(e){
     if(e.target.value === "reset"){
       getKitchen()
     } else {
         axios
       .get(`/kitchen/search/type?type=${e.target.value}`)
-      .then(res => setKitchenState(res.data))
+      .then(res => setKitchen(res.data))
       .catch(err => console.error(err))
     }
   }
 
-  useEffect(() => {
-    getKitchen()
-  }, [])
+  if(!isKitchenLoaded) return <h2>Loading...</h2>
 
   return (
     <div className='kitchen'>
       <div className="filter-wrapper">
-      <h3>{`More than ${kitchenState.length} results for "kitchen"`}</h3>
+      <h3>{`More than ${kitchen.length} results for "kitchen"`}</h3>
       <div>
       <h4 className="filter-type">Filter by Type</h4>
       <select onChange={handleFilter} className="filter-form">
@@ -44,20 +36,20 @@ const Kitchen = () => {
       </div>
       </div>
       <div className='kitchen-wrapper'>
-      {kitchenState.map(kitchenState => {
-        // cartFunctions.addToCart (kitchenState)
+      {kitchen.map(kitchen => {
+        // cartFunctions.addToCart (kitchen)
         return (
           <AllKitchen 
-            key={kitchenState._id}
-            name={kitchenState.name}
-            description={kitchenState.description}
-            details={kitchenState.details}
-            newPrice={kitchenState.new_price}
-            oldPrice={kitchenState.old_price}
-            type={kitchenState.type}
-            imgUrl={kitchenState.imgUrl}
-            id={kitchenState._id}
-            fullState={kitchenState}
+            key={kitchen._id}
+            name={kitchen.name}
+            description={kitchen.description}
+            details={kitchen.details}
+            newPrice={kitchen.new_price}
+            oldPrice={kitchen.old_price}
+            type={kitchen.type}
+            imgUrl={kitchen.imgUrl}
+            id={kitchen._id}
+            fullState={kitchen}
           />
         )
       })}

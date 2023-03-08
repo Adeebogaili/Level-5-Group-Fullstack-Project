@@ -1,18 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import AllEssential from '../components/AllEssential'
+import useEssentials from '../hooks/useEssentials'
 import "../styles/essentials.css"
 
 const Essentials = () => {
-
-  const [essentials, setEssentials] = useState([])
-
-  const getEssentials = () => {
-    axios
-        .get("/essentials")
-        .then(res => setEssentials(res.data))
-        .catch(err => console.error(err))
-  }
+  
+  const { essentials, setEssentials, getEssentials, isLoaded} = useEssentials()
 
   function handleFilter(e){
     if(e.target.value === "reset"){
@@ -25,9 +19,7 @@ const Essentials = () => {
     }
   }
 
-  useEffect(() => {
-    getEssentials()
-  }, [])
+  if(!isLoaded) return <h2>Loading...</h2>
 
   return (
     <div className='essentials'>

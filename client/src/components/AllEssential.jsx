@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from '../Context'
+import { CartContext } from '../CartContext'
 import "../styles/allEssential.css";
 import { Link } from "react-router-dom"
 
@@ -16,7 +16,6 @@ const AllEssential = ({
 }) => {
 
   const cart = useContext(CartContext)
-  const productQuantity = cart.getProductQuantity(id)
 
   return (
     <section className="essential-product">

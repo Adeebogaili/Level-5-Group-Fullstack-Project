@@ -15,38 +15,16 @@ import GroceriesCarousel from '../components/GroceriesCarousel'
 import KitchenCarousel from '../components/KitchenCarousel'
 import EssentialsCarousel from '../components/EssentialsCarousel'
 
+//hooks
+import useEssentials from '../hooks/useEssentials';
+import useGroceries from '../hooks/useGroceries';
+import useKitchen from '../hooks/useKitchen';
+
 const Home = () => {
 
-  const [groceriesCarousel, setGroceriesCarousel] = useState([]);
-  const [kitchenCarousel, setkitchenCarousel] = useState([]);
-  const [essentialsCarousel, setEssentialsCarousel] = useState([]);
-
-  const getGroceries = () => {
-    axios
-      .get("/groceries")
-      .then((res) => setGroceriesCarousel(res.data))
-      .catch((err) => console.error(err));
-  };
-
-  const getKitchen = () => {
-    axios
-      .get("/kitchen")
-      .then((res) => setkitchenCarousel(res.data))
-      .catch((err) => console.error(err));
-  };
-
-  const getEssentials = () => {
-    axios
-      .get("/essentials")
-      .then((res) => setEssentialsCarousel(res.data))
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    getGroceries();
-    getKitchen()
-    getEssentials()
-  }, []);
+  const {essentials, isLoaded} = useEssentials()
+  const {groceries, isGroceryLoaded} = useGroceries()
+  const {kitchen, isKitchenLoaded} = useKitchen()
 
   const responsive = {
     superLargeDesktop: {
@@ -76,6 +54,10 @@ const Home = () => {
     }
   };
 
+  if(!isLoaded) return <h2>Loading...</h2>
+  if(!isGroceryLoaded) return <h2>Loading...</h2>
+  if(!isKitchenLoaded) return <h2>Loading...</h2>
+
   return (
     <div className='home-container'>
       <div className='image-wrapper'>
@@ -100,18 +82,18 @@ const Home = () => {
             responsive={responsive}   
             infinite={true} 
           >
-            {groceriesCarousel.map((groceries) => {
+            {groceries.map((grocery) => {
           return (
             <GroceriesCarousel
-              key={groceries._id}
-              name={groceries.name}
-              description={groceries.description}
-              details={groceries.details}
-              newPrice={groceries.new_price}
-              oldPrice={groceries.old_price}
-              type={groceries.type}
-              imgUrl={groceries.imgUrl}
-              id={groceries._id}
+              key={grocery._id}
+              name={grocery.name}
+              description={grocery.description}
+              details={grocery.details}
+              newPrice={grocery.new_price}
+              oldPrice={grocery.old_price}
+              type={grocery.type}
+              imgUrl={grocery.imgUrl}
+              id={grocery._id}
             />
           );
         })}
@@ -121,7 +103,7 @@ const Home = () => {
             responsive={responsive}   
             infinite={true} 
           >
-            {kitchenCarousel.map((kitchen) => {
+            {kitchen.map((kitchen) => {
           return (
             <KitchenCarousel
               key={kitchen._id}
@@ -142,7 +124,7 @@ const Home = () => {
             responsive={responsive}   
             infinite={true} 
           >
-            {essentialsCarousel.map((essential) => {
+            {essentials.map((essential) => {
           return (
             <EssentialsCarousel
               key={essential._id}
@@ -158,7 +140,7 @@ const Home = () => {
           );
         })}
           </Carousel>
-        </div>
+        </div> 
       </div>
       <div className='image-wrapper'>
         <img className='main-image' src={hero}/>

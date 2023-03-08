@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import CartDropDown from "../components/CartDropDown";
 import CartItem from "../components/CartItem"
+import { CartContext } from "../CartContext";
 import "../styles/rootLayout.css";
 
 const RootLayout = () => {
+
+  const cart = useContext(CartContext);
+
+  //show how many items in cart 
+  const productCount = cart.items.reduce(
+    (sum, product) => sum + product.quantity,
+    0
+  );
+
   const [click, setClick] = useState(false);
   const [hidden, setHidden] = useState(true)
 
@@ -72,7 +82,11 @@ const RootLayout = () => {
               <i
                 className="fa-solid fa-cart-shopping"
                 onClick={() => toggleHidden()}
-              ></i>
+              >
+              </i>
+              <p className="product-count">
+                {productCount}
+                </p>
             </div>
           {hidden ? null : <CartDropDown />}
 

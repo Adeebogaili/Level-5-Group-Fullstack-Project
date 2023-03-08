@@ -1,14 +1,15 @@
 import axios from 'axios'
-import React, { useState, useEffect, useContext } from 'react'
-import { CartContext } from '../Context'
+import React, { useState, useContext } from 'react'
+import { CartContext } from '../CartContext'
 import { useParams } from 'react-router-dom'
 import "../styles/productDetails.css"
+import useEssentialDetails from '../hooks/useEssentialDetails'
 
 const EssentialDetails = () => {
 
-    
-    const [details, setDetails] = useState({})
     const { id } = useParams()
+
+    const { details, isLoaded} = useEssentialDetails(id)
     
     const cart = useContext(CartContext)
     const productQuantity = cart.getProductQuantity(id)
@@ -24,17 +25,7 @@ const EssentialDetails = () => {
         setQuantityState(prevQuantity => prevQuantity - 1)
     }
   
-    const getData = () => {
-        axios
-            .get(`/essentials/${id}`)
-            .then(res => setDetails(res.data))
-            .catch(error => console.error(error))
-    }
-
-    useEffect(() => {
-        window.scrollTo(0,0)
-        getData()
-    }, [])
+    if(!isLoaded) return <h2>Loading...</h2>
 
     return (
         <div className="details-container">
@@ -61,15 +52,9 @@ const EssentialDetails = () => {
                     <h3>Product description</h3>
                     <p>{details.description}</p>
                     <div className="product-details">
-                        {
-                            details && details.details
-                                ?
-                                details.details.map((detail, index)=> (
-
+                        { details.details.map((detail, index)=> (
                                     <div key={index}><ul><li>{detail}</li></ul></div>
-                                ))
-                                :
-                                ""
+                                ))                        
                         }
                     </div>
                 </section>

@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import "../styles/allKitchen.css"
-import { CartContext } from '../Context'
+import { CartContext } from '../CartContext'
 import { Link } from "react-router-dom"
 
 const Kitchen = ({name, description, details, newPrice, oldPrice, type, imgUrl, id, fullState}) => {

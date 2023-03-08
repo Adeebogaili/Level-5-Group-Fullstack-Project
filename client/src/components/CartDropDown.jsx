@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import CartItem from './CartItem'
-import { CartContext } from '../Context'
+import { CartContext } from '../CartContext'
 import "../styles/cartDropDown.css";
 
-const CartDropdown = (props) => {
+const CartDropdown = () => {
 
   //set state 
   const [essentials, setEssentials] = useState([])
