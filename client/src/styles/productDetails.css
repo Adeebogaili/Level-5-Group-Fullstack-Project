@@ -35,12 +35,24 @@
     font-weight: 700;
 }
 
+.section-add{
+    display: flex;
+}
+
+.section-add h1 {
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
 .section-add p {
+    
     font-size: 20px;
     font-weight: 800;
 }
 
 .section-add button {
+    margin-left: 1rem;
     color: white;
     background-color: #004E36;
     border: none;
@@ -74,5 +86,4 @@
 .product-instructions li {
     list-style-type: disc;
     margin-left: 2rem;
-
 }
