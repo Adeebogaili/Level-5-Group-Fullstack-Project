@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState, useContext } from 'react'
 import { CartContext } from '../CartContext'
 import { useParams } from 'react-router-dom'
