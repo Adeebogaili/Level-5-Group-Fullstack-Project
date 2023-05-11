@@ -4,6 +4,8 @@ import CartDropDown from "../components/CartDropDown";
 import CartItem from "../components/CartItem"
 import { CartContext } from "../CartContext";
 import "../styles/rootLayout.css";
+import logo from "../images/project-logo-1.png";
+
 
 const RootLayout = () => {
 
@@ -26,7 +28,7 @@ const RootLayout = () => {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink to="/" className="nav-logo">
-            Sunrise Food <span>MARKET</span>
+            <img src={logo} alt="logo" />
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -76,18 +78,14 @@ const RootLayout = () => {
                 Help
               </NavLink>
             </li>
-            
           </ul>
           <div className="nav-item-cart">
-              <i
-                className="fa-solid fa-cart-shopping"
-                onClick={() => toggleHidden()}
-              >
-              </i>
-              <p className="product-count">
-                {productCount}
-                </p>
-            </div>
+            <i
+              className="fa-solid fa-cart-shopping"
+              onClick={() => toggleHidden()}
+            ></i>
+            <p className="product-count">{productCount}</p>
+          </div>
           {hidden ? null : <CartDropDown />}
 
           <div className="nav-icon" onClick={handleClick}>

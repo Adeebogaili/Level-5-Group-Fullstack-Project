@@ -14,19 +14,24 @@
 }
 
 .sales-details {
+    
     padding: 2rem;
+    margin: 5rem;
     background-color: white;
+    border: 10px dashed #004E36;
+    border-radius: 40px;
     width: 400px;
     position: absolute;
     top: 1rem;
-    left: 0;
 }
 .sales-details h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-family: 'Lobster Two' !important;
 }
 .sales-details p {
     margin-top: 1rem;
     font-size: 14px;
+    font-family: 'Cabin', sans-serif;
 }
 
 .sales-details button {
