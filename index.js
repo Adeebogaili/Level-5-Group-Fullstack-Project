@@ -9,9 +9,12 @@ require('dotenv').config()
 //Middleware (for every request)
 app.use(express.json())
 app.use(morgan("dev"))
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 
 // Connect to DB
 mongoose.set("strictQuery", false)
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connect(process.env.MONGO_URL,
 () => console.log("Connected to MongoDB")
 )
